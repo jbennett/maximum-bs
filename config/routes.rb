@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   end
 
   constraints Clearance::Constraints::SignedOut.new do
-    root to: "clearance/sessions#new"
+    scope :battle, defaults: { format: 'json' } do
+      get ':id', to: 'api/snakes#show'
+    end
+
+    root to: 'clearance/sessions#new', as: :signed_out_root
   end
 end
