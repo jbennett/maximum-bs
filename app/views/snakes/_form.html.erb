@@ -1,0 +1,25 @@
+<%= form_with model: snake do |form| %>
+
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  
+  <div>
+    <%= form.label :color %>
+    <%= form.text_field :color %>
+  </div>
+  
+  <div>
+    <%= form.label :head %>
+    <%= form.text_field :head %>
+  </div>
+  
+  <div>
+    <%= form.label :tail %>
+    <%= form.text_field :tail %>
+  </div>
+
+  <div><%= form.submit %></div>
+
+<% end %>

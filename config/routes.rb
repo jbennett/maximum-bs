@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   constraints Clearance::Constraints::SignedIn.new do
-    root to: "dashboards#show", as: :signed_in_root
+    resources :snakes, only: %i[new create show edit update]
+
+    root to: 'dashboards#show'
   end
 
   constraints Clearance::Constraints::SignedOut.new do

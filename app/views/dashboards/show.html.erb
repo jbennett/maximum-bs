@@ -1,0 +1,12 @@
+<h1>Snakes</h1>
+
+<div id="snakes">
+	<% @dashboard.snakes.each do |snake| %>
+		<div>
+			<%= link_to snake.name, snake %>
+			<%= link_to 'E', edit_snake_path(snake) %>
+		</div>
+	<% end %>
+
+	<%= link_to 'Create Snake', new_snake_path %>
+</div>
