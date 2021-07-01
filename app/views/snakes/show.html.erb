@@ -1,9 +1,17 @@
-<h1>Results for <%= @snake.name %></h1>
+<h1>Maximum BS</h1>
 
-<div id="game-results">
-  <%# @snake.games.reverse_chronological.each do |game| %>
-    <%# game.started_at %>
-    <%# game.ended_at %>
-    <%# game.result %>
-  <%#x end %>
+<div>
+  <div><%= render 'sidebar' %></div>
+
+  <div>
+    <h1>Results for <%= @snake.name %></h1>
+
+    <div id="game-results">
+      <%# @snake.games.reverse_chronological.each do |game| %>
+        <%# game.started_at %>
+        <%# game.ended_at %>
+        <%# game.result %>
+      <%#x end %>
+    </div>
+  </div>
 </div>

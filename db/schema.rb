@@ -10,10 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_30_102640) do
+ActiveRecord::Schema.define(version: 2021_07_01_001237) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "game_participants", force: :cascade do |t|
+    t.bigint "game_id", null: false
+    t.bigint "snake_id", null: false
+    t.string "result"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["game_id"], name: "index_game_participants_on_game_id"
+    t.index ["snake_id"], name: "index_game_participants_on_snake_id"
+  end
+
+  create_table "games", force: :cascade do |t|
+    t.string "external_id"
+    t.integer "timeout"
+    t.integer "width"
+    t.integer "height"
+    t.integer "snake_count"
+    t.string "mode"
+    t.datetime "ended_at"
+    t.string "result"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "snakes", force: :cascade do |t|
     t.string "name"
@@ -35,4 +58,6 @@ ActiveRecord::Schema.define(version: 2021_06_30_102640) do
     t.index ["remember_token"], name: "index_users_on_remember_token"
   end
 
+  add_foreign_key "game_participants", "games"
+  add_foreign_key "game_participants", "snakes"
 end

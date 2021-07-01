@@ -1,4 +1,8 @@
 class SnakesController < SecureController
+  def index
+    @snakes = Snake.alphabetical_order
+  end
+
   def new
     @snake = Snake.new
   end
@@ -14,6 +18,7 @@ class SnakesController < SecureController
   end
 
   def show
+    @snakes = Snake.alphabetical_order
     @snake = Snake.find params[:id]
   end
 
